@@ -1,7 +1,6 @@
 export function getBrandContext() {
   return {
-    time: new Date().getHours(),
-    device: window.innerWidth < 768 ? "mobile" : "desktop",
-    prefersMotion: !window.matchMedia("(prefers-reduced-motion)").matches
+    mood: localStorage.getItem("octzero:mood") || "calm",
+    visitCount: Number(localStorage.getItem("octzero:visits") || 0)
   };
 }

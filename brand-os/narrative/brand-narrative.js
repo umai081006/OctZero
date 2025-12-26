@@ -1,9 +1,10 @@
 export function resolveNarrative(context) {
   return {
-    headline: "OctZero",
-    tagline:
-      context.device === "mobile"
-        ? "We build brands that scale."
-        : "Brand systems engineered to evolve."
+    eyebrow: "OctZero System",
+    title: "Designing brands as living systems.",
+    subtitle:
+      context.mood === "bold"
+        ? "We don’t launch pages. We build organisms."
+        : "A design system that evolves with intention."
   };
 }

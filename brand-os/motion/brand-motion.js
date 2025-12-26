@@ -1,8 +1,13 @@
 export function resolveMotionLevel(context) {
-  if (!context.prefersMotion) return "none";
-  return context.device === "mobile" ? "low" : "high";
+  return context.mood === "bold" ? "high" : "low";
 }
 
 export function applyMotionLevel(level) {
   document.documentElement.dataset.motion = level;
+
+  if (level === "high") {
+    document.documentElement.style.setProperty("--transition-slow", "0.8s ease-out");
+  } else {
+    document.documentElement.style.setProperty("--transition-slow", "1.2s ease");
+  }
 }

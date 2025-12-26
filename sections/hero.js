@@ -1,6 +1,11 @@
-export function renderHero({ headline, tagline }) {
-  document.querySelector("#hero .hero-inner").innerHTML = `
-    <h1 class="hero-title">${headline}</h1>
-    <p class="hero-tagline">${tagline}</p>
+export function HeroSection(narrative) {
+  return `
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">${narrative.eyebrow}</p>
+        <h1 class="hero-title">${narrative.title}</h1>
+        <p class="hero-subtitle">${narrative.subtitle}</p>
+      </div>
+    </section>
   `;
 }

@@ -1,37 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>OctZero</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles/main.css" />
 </head>
 <body>
+  <div id="app">
+    <main id="view"></main>
+  </div>
 
-<div id="view">
-  <section id="hero" class="hero">
-    <div class="hero-inner"></div>
-  </section>
-
-  <section id="proof"></section>
-  <section id="system"></section>
-  <section id="invite"></section>
-</div>
-
-<div id="brand-control" hidden>
-  <label>Mood</label>
-  <select id="moodSelect">
-    <option value="calm">Calm</option>
-    <option value="bold">Bold</option>
-  </select>
-
-  <label>Motion</label>
-  <select id="motionSelect">
-    <option value="low">Low</option>
-    <option value="high">High</option>
-  </select>
-</div>
-
-<script type="module" src="main.js"></script>
+  <script type="module" src="./main.js"></script>
 </body>
 </html>
