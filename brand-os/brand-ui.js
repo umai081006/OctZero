@@ -26,5 +26,5 @@ export function initMoodControl() {
     document.dispatchEvent(new CustomEvent("octzero:mood-change"));
   });
 
-  document.body.appendChild(panel);
-}
+    document.documentElement.appendChild(panel);
+
