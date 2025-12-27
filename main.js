@@ -5,19 +5,25 @@ import { resolveMotionLevel, applyMotionLevel } from "./brand-os/brand-motion.js
 import { applyThemePreferences } from "./brand-os/brand-theme.js";
 import { resolveMood, applyMood } from "./brand-os/brand-mood.js";
 import { initRouter } from "./brand-os/brand-router.js";
+import { initMoodControl } from "./brand-os/brand-ui.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const context = getBrandContext();
 
   applyThemePreferences();
-  applyMotionLevel(resolveMotionLevel(context));
   applyMood(resolveMood(context));
+  applyMotionLevel(resolveMotionLevel(context));
 
-  initRouter((html) => {
-    const view = document.getElementById("view");
-    view.innerHTML = html;
-
-    const narrative = resolveNarrative(context);
+  initRouter(() => {
+    const narrative = resolveNarrative(getBrandContext());
     renderHero(narrative);
   });
+
+  initMoodControl();
+});
+
+// listen for live mood change
+document.addEventListener("octzero:mood-change", () => {
+  const narrative = resolveNarrative(getBrandContext());
+  renderHero(narrative);
 });

@@ -66,3 +66,39 @@ html, body {
     transform: translateY(0);
   }
 }
+
+/* ===== Mood Control Panel ===== */
+.mood-panel {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 999;
+}
+
+.mood-panel button {
+  background: rgba(255,255,255,0.08);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  font-size: 0.75rem;
+  border-radius: 6px;
+}
+
+.mood-panel button:hover {
+  background: rgba(255,255,255,0.18);
+}
+
+/* ===== Mood Variants ===== */
+html[data-mood="bold"] {
+  --hero-padding: 16vh;
+}
+
+html[data-mood="dark"] {
+  --bg: #000;
+  --fg: #f5f5f5;
+  --muted: rgba(255,255,255,0.5);
+  --hero-padding: 14vh;
+}
