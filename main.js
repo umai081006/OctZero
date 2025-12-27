@@ -7,8 +7,6 @@ import { resolveMood, applyMood } from "./brand-os/brand-mood.js";
 import { initRouter } from "./brand-os/brand-router.js";
 import { initMoodControl } from "./brand-os/brand-ui.js";
 
-let uiMounted = false;
-
 document.addEventListener("DOMContentLoaded", () => {
   const context = getBrandContext();
 
@@ -19,13 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
   initRouter(() => {
     const narrative = resolveNarrative(getBrandContext());
     renderHero(narrative);
-
-    // 🔥 mount internal UI AFTER first render
-    if (!uiMounted) {
-      initMoodControl();
-      uiMounted = true;
-    }
   });
+
+  // 🔥 mount ONCE, OUTSIDE router
+  initMoodControl();
 });
 
 document.addEventListener("octzero:mood-change", () => {

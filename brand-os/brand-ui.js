@@ -3,6 +3,9 @@ import { applyMotionLevel, resolveMotionLevel } from "./brand-motion.js";
 import { getBrandContext } from "./brand-context.js";
 
 export function initMoodControl() {
+  const mountPoint = document.getElementById("internal-ui");
+  if (!mountPoint) return;
+
   const panel = document.createElement("div");
   panel.className = "mood-panel";
 
@@ -22,9 +25,8 @@ export function initMoodControl() {
     applyMood(mood);
     applyMotionLevel(resolveMotionLevel({ ...context, mood }));
 
-    // re-render hero without reload
     document.dispatchEvent(new CustomEvent("octzero:mood-change"));
   });
 
-    document.documentElement.appendChild(panel);
-
+  mountPoint.appendChild(panel);
+}
